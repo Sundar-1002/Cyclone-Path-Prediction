@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Live Cyclone Data</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+      *{
+        text-align: center;
+      }
+      body{
+        background-image: url('/static/images/map.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        opacity: 0.75;
+      } 
+      .table{
+        background-color: rgb(94, 228, 255);
+      }
+      h1{
+        background-color: rgb(94, 228, 255);
+      }
+      h2{
+        background-color: rgb(94, 228, 255);
+        margin-top: 25px;
+      }
+      .btn1{
+            border: none;
+            outline: none;
+            height: 30px;
+            width: 100%;
+            background-color: rgb(21, 97, 188);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .btn1:hover{
+            background: white;
+            border: 1px solid;
+            color: rgb(21, 97, 188);
+        }
+        .btn2{
+            border: none;
+            outline: none;
+            height: 30px;
+            width: 10%;
+            background-color: rgb(21, 97, 188);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .btn2:hover{
+            background: white;
+            border: 1px solid;
+            color: rgb(21, 97, 188);
+        }
+        h1{
+            text-align: center;
+        }
+        button{
+          align-items: center;
+        }
+        .btn3{
+          border: none;
+        outline: none;
+        height: 30px;
+        width: 100%;
+        background-color: rgb(21, 97, 188);
+        color: white;
+        border-radius: 4px;
+        font-weight: bold;
+        }
+        .button--loading .button__text {
+          visibility: hidden;
+          opacity: 0;
+        }
+
+        .button--loading::after {
+          content: "";
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          border: 4px solid transparent;
+          border-top-color: #ffffff;
+          border-radius: 50%;
+          animation: button-loading-spinner 1s ease infinite;
+        }
+
+        @keyframes button-loading-spinner {
+          from {
+            transform: rotate(0turn);
+          }
+
+          to {
+            transform: rotate(1turn);
+          }
+        }
+        .button {
+        position: relative;
+        background: rgb(21, 97, 188);
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        cursor: pointer;
+        color: white;
+        height: 30px;
+        width: 10%;
+        font-weight: bold;
+      }
+      .button:hover{
+            background: white;
+            border: 1px solid;
+            color: rgb(21, 97, 188);
+        }
+
+      .button:active {
+        background: rgb(21, 97, 188);
+        color: white;
+      }
+
+
+    </style>
+    </head>
+    <body>
+        <h1>Live Cyclone Path Predictor - TyphoonTrack</h1>
+     <div class="container">
+      <h2>Live Cyclones</h2>
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Cyclone Title</th>
+      <th scope="col">Latitude(Start)</th>
+      <th scope="col">Longtitude(Start)</th>
+      <th scope="col">Maximum Wind</th>
+      <th scope="col">Prediction</th>
+    </tr>
+  </thead>
+  <tbody id="table-body">
+    <tr>
+      <td scope="col">Tropical Cyclone Herman</th>
+      <td scope="col">-13.3</th>
+      <td scope="col">100.4</th>
+      <td scope="col">35.0</th>
+      <td scope="col"><a href=""><button class="btn3">Load</button></a></th>
+    </tr>
+      </tbody>
+</table>
+<a href="/templates/predict.html"><button type="button" class="button" onclick="this.classList.toggle('button--loading')"><span class="button__text">Predict</span></button></a>
+</div>
+  <div class="container">
+    <h2>Past Cyclones Information</h2>
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Cyclone Title</th>
+      <th scope="col">Latitude(Start)</th>
+      <th scope="col">Longtitude(Start)</th>
+    </tr>
+  </thead>
+  <tbody id="table-body2">
+      </tbody>
+</table>
+</div>
+
+        <script src="/static/script.js" async defer></script>
+    </body>
+</html>

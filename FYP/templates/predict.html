@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Predicted Path Of Cyclone</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin=""/>
+    <style>
+      #map {
+        height: 500px;
+      }
+      h1{
+        color: aqua;
+      }
+      h3{
+        color: aqua;
+      }
+      *{
+        text-align: center;
+      }
+      body{
+        background-color:black;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .btn1{
+            border: none;
+            outline: none;
+            height: 30px;
+            width: 10%;
+            background-color: rgb(21, 97, 188);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .btn1:hover{
+            background: white;
+            border: 1px solid;
+            color: rgb(21, 97, 188);
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Prediction in progress...! Wait for results</h1>
+    <h3>Cyclone Name:<p>{{ title }}</p></h3>
+    <div id="map"></div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"  crossorigin=""></script>
+    <script>
+      // Define the map object
+  var map = L.map('map').setView([0, 0], 2);
+  
+  // Add the tile layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 25
+  }).addTo(map);
+  
+  var iconOptions = {
+   iconUrl: 'C:/Users/Lenovo/Downloads/FYP/templates/logo.png',
+   iconSize: [50, 50]
+}
+
+// Creating a custom icon
+var customIcon = L.icon(iconOptions);
+
+var markerOptions = {
+   title: "MyLocation",
+   clickable: true,
+   draggable: true,
+   icon: customIcon
+}
+
+  // Define the coordinates array
+  var coordinates = {{ coords | tojson }};  
+  // Add the markers to the map
+  var coords = [];
+  var length = coordinates.length;
+  for(let i=length-1;i>=length-90;i--)
+  {
+    coords.push(coordinates[i]);
+  }
+  if(length<90)
+  {
+    coordinates.forEach(function(coord) {
+      var marker = L.circle(coord,markerOptions);
+      marker.addTo(map);
+    });
+  }
+  else{
+    coords.forEach(function(coord) {
+      var marker = L.circle(coord,markerOptions);
+      marker.addTo(map);
+    });
+  }
+
+    </script>
+  </body>
+</html>
