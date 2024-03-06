@@ -12,10 +12,10 @@ def ret():
         import geopandas as gpd
         import matplotlib.pyplot as plt
         import warnings
+        from keras.metrics import mean_squared_error
         import copy
         warnings.simplefilter("ignore")
         plt.style.use("bmh")
-        from keras.metrics.metrics import mean_squared_error
 
         df = pd.read_csv('myvalues.csv')
 
