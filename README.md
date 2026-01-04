@@ -83,9 +83,12 @@ The web interface allows users to:
 - Generate predicted cyclone paths
 - Visualise predictions on an interactive map
 
+---
 
 ## Results
 The trained models learn cyclone movement patterns across different ocean basins. LSTM models capture temporal dependencies effectively, while ensemble methods improve prediction robustness. Basin-specific training improves regional forecast accuracy.
+
+---
 
 ## Technologies Used
 - Python
@@ -95,7 +98,11 @@ The trained models learn cyclone movement patterns across different ocean basins
 - NumPy, pandas
 - Heroku (deployment)
 
+---
+
 ## Author
 Sundararajan Srinivasan
 
 GitHub: https://github.com/Sundar-1002
+
+---
